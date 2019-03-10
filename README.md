@@ -1,4 +1,7 @@
 # hello-world
+clear all;
+close all;
+clc;
 screens = Screen('Screens');
 screenNumber = max(screens);
 black = BlackIndex(screenNumber);
@@ -11,4 +14,5 @@ Screen('TextSize', window, 80);
 Screen('TextFont', window, 'Courier');
 DrawFormattedText(window, 'Hello World', 'center', 'center', white);
 Screen('Flip', window);
-KbStrokeWait;
+WaitSecs(5);
+sca;
