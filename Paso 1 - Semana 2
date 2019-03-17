@@ -1,0 +1,183 @@
+% PROBLEMA 1
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+WaitSecs(5)
+Screen('CloseAll')
+
+% PROBLEMA 2
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+[screenXpixels, screenYpixels] = Screen('WindowSize', window);
+[xCenter, yCenter] = RectCenter(windowRect);
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect);
+Screen('Flip', window);
+WaitSecs(2)
+Screen('FillRect', window, grey);
+Screen('Flip', window);
+WaitSecs(1);
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter - 400, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect)
+Screen('Flip', window);
+WaitSecs(2);
+sca;
+
+% PROBLEMA 3
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+[screenXpixels, screenYpixels] = Screen('WindowSize', window);
+[xCenter, yCenter] = RectCenter(windowRect);
+baseRect = [0 0 screenYpixels/4 screenYpixels/4];
+centeredRect = CenterRectOnPointd(baseRect, xCenter, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect);
+Screen('Flip', window);
+WaitSecs(2)
+Screen('FillRect', window, grey);
+Screen('Flip', window);
+WaitSecs(1);
+baseRect = [0 0 screenYpixels/4 screenYpixels/4];
+centeredRect = CenterRectOnPointd(baseRect, xCenter - 400, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect)
+Screen('Flip', window);
+WaitSecs(2);
+sca;
+
+% PROBLEMA 4
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+pseudoal = [3:7];
+election = randperm(4);
+time = pseudoal (election(1))
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+[screenXpixels, screenYpixels] = Screen('WindowSize', window);
+[xCenter, yCenter] = RectCenter(windowRect);
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect);
+Screen('Flip', window);
+WaitSecs(time)
+Screen('FillRect', window, grey);
+Screen('Flip', window);
+WaitSecs(1);
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter - 400, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect)
+Screen('Flip', window);
+WaitSecs(time);
+sca;
+
+% PROBLEMA 5
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+pseudoal = [0.2:0.1:0.5];
+election = randperm(4);
+time1 = pseudoal (election(1))
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+[screenXpixels, screenYpixels] = Screen('WindowSize', window);
+ifi = Screen('GetFlipInterval', window);
+Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
+[xCenter, yCenter] = RectCenter(windowRect);
+fixCrossDimPix = 40;
+xCoords = [-fixCrossDimPix fixCrossDimPix 0 0];
+yCoords = [0 0 -fixCrossDimPix fixCrossDimPix];
+allCoords = [xCoords; yCoords];
+lineWidthPix = 4;
+Screen('DrawLines', window, allCoords, lineWidthPix, white, [xCenter yCenter], 2);
+Screen('Flip', window)
+WaitSecs(time1);
+
+pseudoal = [3:7];
+election = randperm(4);
+time2 = pseudoal (election(1));
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect);
+Screen('Flip', window);
+WaitSecs(time2)
+Screen('FillRect', window, grey);
+Screen('Flip', window);
+WaitSecs(1);
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter - 400, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect)
+Screen('Flip', window);
+WaitSecs(time2);
+sca;
+
+% PROBLEMA 6
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+pseudoal = [0.2:0.1:0.5];
+election = randperm(4);
+time1 = pseudoal (election(1))
+
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+[screenXpixels, screenYpixels] = Screen('WindowSize', window);
+ifi = Screen('GetFlipInterval', window);
+Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
+[xCenter, yCenter] = RectCenter(windowRect);
+fixCrossDimPix = 40;
+xCoords = [-fixCrossDimPix fixCrossDimPix 0 0];
+yCoords = [0 0 -fixCrossDimPix fixCrossDimPix];
+allCoords = [xCoords; yCoords];
+lineWidthPix = 4;
+Screen('DrawLines', window, allCoords, lineWidthPix, white, [xCenter yCenter], 2);
+Screen('Flip', window)
+WaitSecs(time1);
+
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter-screenYpixels/4, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect);
+
+baseOval= [0 0 400 400]
+maxDiameter = max(baseRect)*1.01;
+centeredRect2 = CenterOvalOnPointd(baseOval, xCenter+screenYpixels/4, yCenter);
+OvalColor = [0 1 0]
+Screen('FillOval', window, OvalColor, centeredRect2, maxDiameter);
+Screen('Flip', window);
+WaitSecs(2);
+sca;
