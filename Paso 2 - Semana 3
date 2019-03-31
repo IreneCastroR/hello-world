@@ -1,0 +1,38 @@
+% PROBLEMA 7
+
+PsychDefaultSetup(2);
+screens = Screen('Screens');
+screenNumber = max(screens);
+white = WhiteIndex(screenNumber);
+black = BlackIndex(screenNumber);
+grey = white / 2;
+pseudoal = [0.2:0.1:0.5];
+election = randperm(4);
+time1 = pseudoal (election(1))
+
+[window, windowRect] = PsychImaging('OpenWindow', screenNumber, grey);
+[screenXpixels, screenYpixels] = Screen('WindowSize', window);
+ifi = Screen('GetFlipInterval', window);
+Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
+[xCenter, yCenter] = RectCenter(windowRect);
+fixCrossDimPix = 40;
+xCoords = [-fixCrossDimPix fixCrossDimPix 0 0];
+yCoords = [0 0 -fixCrossDimPix fixCrossDimPix];
+allCoords = [xCoords; yCoords];
+lineWidthPix = 4;
+Screen('DrawLines', window, allCoords, lineWidthPix, white, [xCenter yCenter], 2);
+Screen('Flip', window)
+WaitSecs(time1);
+
+baseRect = [0 0 400 400];
+centeredRect = CenterRectOnPointd(baseRect, xCenter-screenYpixels/4, yCenter);
+rectColor = [1 0 0];
+Screen('FillRect', window, rectColor, centeredRect);
+
+Screen('FillRect', window, grey);
+Screen('Flip', window);
+WaitSecs(0.5);
+sca;
+
+
+% PROBLEMA 8
